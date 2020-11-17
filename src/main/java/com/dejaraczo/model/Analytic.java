@@ -28,10 +28,10 @@ public class Analytic {
   private Date daily;
 
   @Column
-  private Integer clicks;
+  private Long clicks;
 
   @Column
-  private Integer impressions;
+  private Long impressions;
 
 
 }

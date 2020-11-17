@@ -9,6 +9,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create-drop
+    show-sql: false
   # enable H2 web console and set url for web console
   # http://localhost:8080/console
   h2:

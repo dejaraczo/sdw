@@ -39,6 +39,9 @@ public class ModelMapper extends DozerBeanMapper {
 
   public static class StringToDateConverter extends DozerConverter<String, Date> {
 
+    //Date of format 11/13/19
+    private final static SimpleDateFormat SDF = new SimpleDateFormat("MM/dd/yy");
+
     StringToDateConverter() {
       super(String.class, Date.class);
     }
@@ -46,9 +49,7 @@ public class ModelMapper extends DozerBeanMapper {
     @Override
     public Date convertTo(String source, Date destination) {
       try {
-        // 11/13/19
-        Date date = new SimpleDateFormat("MM/dd/yy").parse(source);
-        return date;
+        return SDF.parse(source);
       } catch (ParseException e) {
         log.error(e.getMessage());
         return null;
@@ -57,7 +58,7 @@ public class ModelMapper extends DozerBeanMapper {
 
     @Override
     public String convertFrom(Date source, String destination) {
-      return source.toString();
+      return SDF.format(source);
     }
   }
 }
