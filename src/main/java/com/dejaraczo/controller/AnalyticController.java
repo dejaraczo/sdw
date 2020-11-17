@@ -32,7 +32,7 @@ public class AnalyticController {
 
   @GetMapping(value = "/analyticsResults")
   public MetricsResultsDto getTotalClicksByDatasource(
-      @RequestParam(defaultValue = "datasource, campaign") List<Metrics> metricsList,
+      @RequestParam List<Metrics> metricsList,
       @RequestParam(required = false) @ApiParam(example = "Facebook Ads") String datasource,
       @RequestParam(required = false) @ApiParam(example = "SN_Brand") String campaign,
       @RequestParam(required = false) @ApiParam(example = "11/23/19") Date fromDate,
